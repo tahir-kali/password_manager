@@ -6,33 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      #welcome{
+      #welcome {
         background-color: green;
         font-size: 30px;
-        color:white;
+        color: white;
         padding: 20px;
         text-align: center;
       }
-      #error{
+      #error {
         background-color: red;
         font-size: 30px;
-        color:white;
+        color: white;
         padding: 20px;
         text-align: center;
       }
-      .hidden{
+      .hidden {
         display: none;
       }
-  
-      #login{
+
+      #login {
         height: 300px;
         padding: 20px;
         border: 2px solid black;
         margin: auto;
-        width: min(300px,99%)
-
+        width: min(300px, 99%);
       }
-      #login input{
+      #login input {
         width: 100%;
         display: block;
         margin-block: 10px;
@@ -50,32 +49,30 @@
       <input type="password" id="pwd" placeholder="Password" />
       <button type="submit" onclick="login()">Submit</button>
     </div>
-    <div id="welcome" class="hidden">
-      Welcome to your secret application
-    </div>
-    <div id="error" class="hidden">
-      Go away!
-    </div>
+    <div id="welcome" class="hidden">Welcome to your secret application</div>
+    <div id="error" class="hidden">Go away!</div>
 
     <script>
-      function login(){
+      function login() {
+        const user = document.getElementById("usr");
         const pwd = document.getElementById("pwd");
+
         const userName = "muneer@gmail.com";
         const token = "Muneer is cool @123";
-        if(pwd.value === token){
+        if (pwd.value === token && user.value === userName) {
           // Authentication success
           display("welcome");
           return;
         }
-          // Authentication failed
-         display("error");
+        // Authentication failed
+        display("error");
       }
-      function display(what){
+
+      function display(what) {
         const login = document.getElementById("login");
         const element = document.getElementById(what);
-        element.classList.remove('hidden');
+        element.classList.remove("hidden");
         login.classList.add("hidden");
-
       }
     </script>
   </body>
