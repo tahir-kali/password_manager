@@ -23,10 +23,19 @@
       .hidden{
         display: none;
       }
-      input {
-        position: absolute;
-        top: 80px;
-        left: 50%;
+  
+      #login{
+        height: 300px;
+        padding: 20px;
+        border: 2px solid black;
+        margin: auto;
+        width: min(300px,99%)
+
+      }
+      #login input{
+        width: 100%;
+        display: block;
+        margin-block: 10px;
       }
       button {
         position: absolute;
@@ -37,7 +46,8 @@
   </head>
   <body>
     <div id="login">
-      <input type="password" id="pwd" />
+      <input type="text" id="usr" placeholder="User Name" />
+      <input type="password" id="pwd" placeholder="Password" />
       <button type="submit" onclick="login()">Submit</button>
     </div>
     <div id="welcome" class="hidden">
@@ -50,6 +60,7 @@
     <script>
       function login(){
         const pwd = document.getElementById("pwd");
+        const userName = "muneer@gmail.com";
         const token = "Muneer is cool @123";
         if(pwd.value === token){
           // Authentication success
@@ -64,6 +75,7 @@
         const element = document.getElementById(what);
         element.classList.remove('hidden');
         login.classList.add("hidden");
+
       }
     </script>
   </body>
