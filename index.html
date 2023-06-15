@@ -6,12 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      .manu {
-        width: 500px;
-        height: 500px;
-        border: 2px solid black;
-        margin: auto;
-        position: relative;
+      #welcome{
+        background-color: green;
+        font-size: 30px;
+        color:white;
+        padding: 20px;
+        text-align: center;
+      }
+      #error{
+        background-color: red;
+        font-size: 30px;
+        color:white;
+        padding: 20px;
+        text-align: center;
+      }
+      .hidden{
+        display: none;
       }
       input {
         position: absolute;
@@ -26,11 +36,35 @@
     </style>
   </head>
   <body>
-    <div class="manu">
-      <div class="wellcom">Wellcom</div>
-      <div class="goaway">Go away</div>
-      <input type="text" />
-      <button type="submit">Submit</button>
+    <div id="login">
+      <input type="password" id="pwd" />
+      <button type="submit" onclick="login()">Submit</button>
     </div>
+    <div id="welcome" class="hidden">
+      Welcome to your secret application
+    </div>
+    <div id="error" class="hidden">
+      Go away!
+    </div>
+
+    <script>
+      function login(){
+        const pwd = document.getElementById("pwd");
+        const token = "Muneer is cool @123";
+        if(pwd.value === token){
+          // Authentication success
+          display("welcome");
+          return;
+        }
+          // Authentication failed
+         display("error");
+      }
+      function display(what){
+        const login = document.getElementById("login");
+        const element = document.getElementById(what);
+        element.classList.remove('hidden');
+        login.classList.add("hidden");
+      }
+    </script>
   </body>
 </html>
